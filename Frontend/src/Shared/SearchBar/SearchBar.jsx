@@ -15,8 +15,7 @@ const SearchBar = () => {
 
     const submitHandler = async (e) => {
         e.preventDefault();
-        await searchItemsHandler(Query);
-        navigate('/searchResult')
+        navigate(`/searchResult?query=${Query}`)
     }
 
     const handleSearch = (e) => {

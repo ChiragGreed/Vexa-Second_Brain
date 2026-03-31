@@ -25,4 +25,9 @@ export const searchItemsApi = async (Query) => {
     return response.data;
 }
 
+export const resurfacingItemsApi = async () => {
+    const response = await api.get(`/resurfacing`);
+    return response.data;
+}
+
 

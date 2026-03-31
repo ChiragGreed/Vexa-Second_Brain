@@ -1,7 +1,7 @@
 import Item from "../models/itemModel.js"
 import { cosineSimilarity } from "./similarityService.js"
 
-const SIMILARITY_THRESHOLD = 0.40;
+const SIMILARITY_THRESHOLD = 0.47;
 
 
 export const buildKnowledgeGraph =

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { getItemsApi, getRelatedItemApi, getSingleItemApi, searchItemsApi } from "../services/Api/itemsApi"
+import { getItemsApi, getRelatedItemApi, getSingleItemApi, resurfacingItemsApi, searchItemsApi } from "../services/Api/itemsApi"
 import { itemsContext } from "../State/ItemsContext";
 import { getCollectionItemsApi } from "../services/Api/collectionsApi";
 
@@ -7,7 +7,7 @@ import { getCollectionItemsApi } from "../services/Api/collectionsApi";
 const useItems = () => {
 
     const context_items = useContext(itemsContext);
-    const { setItems, Items, setSingleItem, setCollections, setLoading } = context_items;
+    const { setItems, setSingleItem, setResurfacedItems, setLoading } = context_items;
 
     const getItemsHandler = async () => {
 
@@ -29,10 +29,9 @@ const useItems = () => {
     }
 
     const getSingleItemHandler = async (itemId) => {
-
         try {
             setLoading(true);
-
+            
             const response = await getSingleItemApi(itemId);
             setSingleItem(response.item);
             setLoading(false);
@@ -83,12 +82,14 @@ const useItems = () => {
 
     }
 
-    const getCollectionsHandler = async (collectionId) => {
+    const resurfaceItemsHandler = async () => {
 
         try {
             setLoading(true);
-            const response = await getCollectionItemsApi(collectionId);
-            setCollections(response.collections);
+
+            const response = await resurfacingItemsApi();
+            setResurfacedItems(response.items);
+            setLoading(false);
 
         }
         catch (err) {
@@ -100,7 +101,7 @@ const useItems = () => {
 
     }
 
-    return ({ context_items, getItemsHandler, getSingleItemHandler, getRelatedItemHandler, searchItemsHandler, getCollectionsHandler })
+    return ({ context_items, getItemsHandler, getSingleItemHandler, resurfaceItemsHandler, getRelatedItemHandler, searchItemsHandler })
 }
 
 export default useItems

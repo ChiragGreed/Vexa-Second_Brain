@@ -1,5 +1,5 @@
 import Item from "../models/itemModel.js"
-import { vectorSearch } from "../utils/vectorService.js"
+import { vectorSearch } from "../utils/vector.util.js"
 
 export const RelatedItemService = async (itemId) => {
 

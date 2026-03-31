@@ -267,7 +267,7 @@ const GraphCard = () => {
         <div className="kg-graph-wrap">
             <div className="kg-graph-wrap__toolbar">
 
-                <div className="kg-graph-wrap__toolbar-label">Live graph · 1,284 nodes</div>
+                <div className="kg-graph-wrap__toolbar-label">Live graph · {Graph?.nodes?.length || 0} nodes</div>
                 <div className="kg-graph-wrap__toolbar-controls">
                     <button className="kg-zoom-btn" onClick={handleZoomOut} title="Zoom out">−</button>
                     <span className="kg-zoom-level">{zoomLevel}%</span>

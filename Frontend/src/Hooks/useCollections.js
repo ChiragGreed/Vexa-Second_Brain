@@ -37,7 +37,6 @@ const useCollections = () => {
 
             const response = await getCollectionItemsApi(collectionId);
             setItems(response.items);
-            console.log(Items);
         }
         catch (err) {
             console.log(err);

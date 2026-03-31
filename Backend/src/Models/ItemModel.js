@@ -29,6 +29,19 @@ const itemSchema = new mongoose.Schema({
         }
     },
 
+    previewTitle: {
+        type: String
+    },
+
+    previewDescription: {
+        type: String
+    },
+
+    previewImage: {
+        type: String,
+    },
+
+
     tags: {
         type: [String],
         required: true,

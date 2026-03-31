@@ -5,7 +5,7 @@ import useGraph from '../../Hooks/useGraph';
 
 const KnowledgeGraph = () => {
 
-  const { context_graph, getGraphHandler } = useGraph();
+  const { context_graph } = useGraph();
   const { Graph } = context_graph;
 
 
@@ -23,12 +23,11 @@ const KnowledgeGraph = () => {
         <div className="kg-stat-card">
           <div className="kg-stat-card__label">Nodes</div>
           <div className="kg-stat-card__value">{Graph?.nodes?.length || 0}</div>
-          <div className="kg-stat-card__delta">↑ 34 this week</div>
+   
         </div>
         <div className="kg-stat-card">
           <div className="kg-stat-card__label">Connections</div>
           <div className="kg-stat-card__value">{Graph?.edges?.length || 0}</div>
-          <div className="kg-stat-card__delta">↑ 12%</div>
         </div>
       </div>
 

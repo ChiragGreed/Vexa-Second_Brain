@@ -5,6 +5,8 @@ import { RelatedItemService } from "../services/relatedItemsService.js"
 import { semanticSearch } from "../services/semanticSearchService.js"
 import { createCollectionIfNotExists, findCollectionByName } from "../services/collectionService.js";
 import collectionModel from "../Models/collectionModel.js";
+import { getResurfacedItems } from "../services/resurfaceService.js"
+import { getLinkPreview } from "../utils/preview.util.js";
 
 
 
@@ -36,8 +38,19 @@ export const saveItem = async (req, res) => {
 
         const tags = await generateTags(content);
         const embedding = await createEmbedding(content);
+        const preview = await getLinkPreview(url);
 
-        const item = await itemModel.create({ title, content, url, tags, embedding, collectionId });
+
+        const item = await itemModel.create({
+            title: title || preview.previewTitle,
+            summary: preview.previewDescription,
+            previewImage: preview.previewImage,
+            url,
+            content,
+            tags,
+            embedding,
+            collectionId,
+        });
 
         if (collectionId) await collectionModel.findByIdAndUpdate(collectionId, { $inc: { itemCount: 1 } });
 
@@ -153,11 +166,38 @@ export const semanticSearchItems = async (req, res) => {
     }
     catch (err) {
 
-        console.error(err,"HELO");
+        console.error(err, "HELO");
 
         res.status(500).json({
             // error: err.message
-            message:"HEHE"
+            message: "HEHE"
+        })
+
+    }
+
+}
+
+
+export const resurfaceItems = async (req, res) => {
+
+    try {
+
+        const items = await getResurfacedItems();
+
+        res.status(200).json({
+            message: "Fetched resurfacing data",
+            success: true,
+            items
+        })
+
+    }
+    catch (err) {
+        console.log(err);
+
+        res.status(500).json({
+
+            error: "Failed to resurface items"
+
         })
 
     }

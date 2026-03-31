@@ -1,5 +1,5 @@
 import { createEmbedding } from "./embeddingService.js"
-import { vectorSearch } from "../utils/vectorService.js"
+import { vectorSearch } from "../utils/vector.util.js"
 
 export const semanticSearch = async (query) => {
 

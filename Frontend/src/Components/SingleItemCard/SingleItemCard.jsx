@@ -1,12 +1,20 @@
 
 import { useEffect } from 'react';
 import useItems from '../../Hooks/useItems'
+import { useParams } from 'react-router-dom';
 
 const SingleItemCard = () => {
 
-    const { context_items } = useItems();
+    const { context_items, getSingleItemHandler } = useItems();
     const { SingleItem } = context_items;
 
+    const { itemId } = useParams();
+
+    useEffect(() => {
+        getSingleItemHandler(itemId);
+    }, [])
+
+    if(!SingleItem) return <></>
 
     return (
         <div>
@@ -53,7 +61,8 @@ const SingleItemCard = () => {
 
                         <div className="item-card__date">
                             <h4>Saved on :</h4>
-                            <p>{new Date(SingleItem.createdAt).toLocaleDateString()}</p>
+                            <p>{Math.floor((Date.now() - new Date(SingleItem.createdAt))
+                                / (1000 * 60 * 60 * 24))} Days ago</p>
 
                         </div>
 

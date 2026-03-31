@@ -76,7 +76,6 @@ const Collections = () => {
                     <div className="stat-card">
                         <div className="stat-card__label">Added today</div>
                         <div className="stat-card__value">{addedToday}</div>
-                        <div className="stat-card__delta">↑ active day</div>
                     </div>
 
                 </div>
@@ -92,7 +91,6 @@ const Collections = () => {
                             className="collection-card"
                             key={col._id}
                             onClick={() => {
-                                getCollectionItemsHandler(col._id);
                                 navigate(`/collections/${col._id}`);
                             }}
                         >

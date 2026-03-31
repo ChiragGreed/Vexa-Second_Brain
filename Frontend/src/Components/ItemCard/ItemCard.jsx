@@ -2,27 +2,31 @@ import { useNavigate } from 'react-router-dom';
 import './ItemCard.scss';
 import useItems from '../../Hooks/useItems';
 
-
-
 const ItemCard = ({ items }) => {
 
   const navigate = useNavigate();
   const { getSingleItemHandler } = useItems();
 
 
-
   function ItemCardRender({ items }) {
     return (
       items.map((item, idx) => {
+
         return <article
+
           key={idx}
           className="item-card"
           onClick={async () => {
+
             await getSingleItemHandler(item._id);
+
             navigate(`/items/${item._id}`);
           }}
         >
 
+          <div className='Item_thumbnail'>
+            <img src={item.previewImage} />
+          </div>
 
           <div className="item-card__body">
 
@@ -60,16 +64,13 @@ const ItemCard = ({ items }) => {
             )}
 
 
+            <div className="item-card__date">
+              <h4>Saved :</h4>
+              <p>{Math.floor((Date.now() - new Date(item.createdAt))
+                / (1000 * 60 * 60 * 24))} Days ago</p>
 
-            {item.createdAt && (
+            </div>
 
-              <div className="item-card__date">
-                <h4>Saved on :</h4>
-                <p>{new Date(item.createdAt).toLocaleDateString()}</p>
-
-              </div>
-
-            )}
           </div>
 
           {item.url && (
@@ -99,6 +100,8 @@ const ItemCard = ({ items }) => {
       })
     )
   }
+
+
 
   return (
     <div className='items_grid'>
