@@ -2,6 +2,7 @@
     height: 100vh;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -63,6 +64,19 @@
     &::placeholder {
         color: #aaa;
     }
+}
+
+.auth_Navigate {
+
+    display: flex;
+    gap: 0.4rem;
+    margin-top: 0.9rem;
+
+    .register_Navigate {
+        text-decoration: none;
+        color: rgb(43, 43, 252);
+    }
+
 }
 
 .btn {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Register.scss'
 import useAuth from '../../Hooks/useAuth'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -77,6 +77,10 @@ const Register = () => {
 
                 <button type="submit" className='btn' onSubmit={handleSubmit}>Submit</button>
             </form>
+            <div className='auth_Navigate'>
+                <p>Already have an Account?</p>
+                <Link className="register_Navigate" to='/login'>Login</Link>
+            </div>
         </div>
     )
 }

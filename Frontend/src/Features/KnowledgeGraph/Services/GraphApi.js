@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: 'http://localhost:9000/api/knowledgeGraph',
+    baseURL: 'https://second-brain-td6n.onrender.com/api/knowledgeGraph',
     withCredentials: true
 })
 
