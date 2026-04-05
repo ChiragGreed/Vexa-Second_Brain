@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap');
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       width: 320px;
@@ -20,7 +27,7 @@
       align-items: center;
       gap: 9px;
       padding: 14px 16px 13px;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
       background: #111116;
     }
 
@@ -39,7 +46,10 @@
       letter-spacing: 0.1em;
     }
 
-    .auth-card, .save-card { padding: 20px 18px 18px; }
+    .auth-card,
+    .save-card {
+      padding: 20px 18px 18px;
+    }
 
     .section-eyebrow {
       font-family: 'JetBrains Mono', monospace;
@@ -59,7 +69,12 @@
       margin-bottom: 18px;
     }
 
-    .field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
 
     .field-label {
       font-family: 'JetBrains Mono', monospace;
@@ -69,9 +84,10 @@
       color: #5a5864;
     }
 
-    input, textarea {
+    input,
+    textarea {
       background: #18181f;
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid rgba(255, 255, 255, 0.07);
       border-radius: 7px;
       padding: 9px 12px;
       font-family: 'Syne', sans-serif;
@@ -83,15 +99,23 @@
       width: 100%;
     }
 
-    input::placeholder, textarea::placeholder { color: #5a5864; }
+    input::placeholder,
+    textarea::placeholder {
+      color: #5a5864;
+    }
 
-    input:focus, textarea:focus {
+    input:focus,
+    textarea:focus {
       border-color: #e8a930;
-      box-shadow: 0 0 0 3px rgba(232,169,48,0.08);
+      box-shadow: 0 0 0 3px rgba(232, 169, 48, 0.08);
       background: #1e1e27;
     }
 
-    textarea { resize: none; height: 72px; line-height: 1.55; }
+    textarea {
+      resize: none;
+      height: 72px;
+      line-height: 1.55;
+    }
 
     .btn {
       width: 100%;
@@ -109,19 +133,30 @@
       margin-top: 4px;
     }
 
-    .btn:hover  { opacity: 0.9; transform: translateY(-1px); }
-    .btn:active { opacity: 1;   transform: translateY(0); }
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .btn:active {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .btn-ghost {
       background: transparent;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       color: #9b99a3;
       margin-top: 8px;
       font-size: 12px;
       font-weight: 500;
     }
 
-    .btn-ghost:hover { background: rgba(255,255,255,0.04); color: #f0eee8; opacity: 1; }
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: #f0eee8;
+      opacity: 1;
+    }
 
     .msg {
       font-family: 'JetBrains Mono', monospace;
@@ -133,22 +168,32 @@
       color: #9b99a3;
     }
 
-    .msg.success { color: #4caf7d; }
-    .msg.error   { color: #e05c5c; }
+    .msg.success {
+      color: #4caf7d;
+    }
 
-    .divider { height: 1px; background: rgba(255,255,255,0.06); margin: 2px 0 14px; }
+    .msg.error {
+      color: #e05c5c;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.06);
+      margin: 2px 0 14px;
+    }
   </style>
 </head>
+
 <body>
 
   <!-- ── Auth view ── -->
   <div id="authView">
     <div class="popup-header">
       <svg width="26" height="26" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-        <rect width="72" height="72" rx="14" fill="#111116"/>
-        <polygon points="13,17 27,17 36,44 45,17 59,17 36,57" fill="#e8a930"/>
-        <polygon points="31,31 36,44 41,31 36,37" fill="#111116"/>
-        <circle cx="36" cy="57" r="5" fill="#f0eee8"/>
+        <rect width="72" height="72" rx="14" fill="#111116" />
+        <polygon points="13,17 27,17 36,44 45,17 59,17 36,57" fill="#e8a930" />
+        <polygon points="31,31 36,44 41,31 36,37" fill="#111116" />
+        <circle cx="36" cy="57" r="5" fill="#f0eee8" />
       </svg>
       <div>
         <div class="brand-name">Vexa</div>
@@ -179,10 +224,10 @@
   <div id="saveView" style="display:none">
     <div class="popup-header">
       <svg width="26" height="26" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-        <rect width="72" height="72" rx="14" fill="#111116"/>
-        <polygon points="13,17 27,17 36,44 45,17 59,17 36,57" fill="#e8a930"/>
-        <polygon points="31,31 36,44 41,31 36,37" fill="#111116"/>
-        <circle cx="36" cy="57" r="5" fill="#f0eee8"/>
+        <rect width="72" height="72" rx="14" fill="#111116" />
+        <polygon points="13,17 27,17 36,44 45,17 59,17 36,57" fill="#e8a930" />
+        <polygon points="31,31 36,44 41,31 36,37" fill="#111116" />
+        <circle cx="36" cy="57" r="5" fill="#f0eee8" />
       </svg>
       <div>
         <div class="brand-name">Vexa</div>
@@ -192,7 +237,7 @@
 
     <div class="save-card">
       <div class="section-eyebrow">Capture</div>
-      <div class="section-title">Save knowledge</div>
+      <div class="section-title">Save to Vexa</div>
 
       <div class="field">
         <span class="field-label">Title</span>
@@ -211,6 +256,16 @@
 
       <div class="divider"></div>
 
+      <div class="field">
+        <span class="field-label">Add to existing collection <span style="color:#5a5864">(optional)</span></span>
+        <input id="existingCollection" type="text" placeholder="e.g. Design, AI, Work..." />
+      </div>
+
+      <div class="field">
+        <span class="field-label">Or create new collection <span style="color:#5a5864">(optional)</span></span>
+        <input id="newCollection" type="text" placeholder="New collection name" />
+      </div>
+
       <button id="saveBtn" class="btn">Save to Vexa →</button>
       <button id="logoutBtn" class="btn btn-ghost">Sign out</button>
 
@@ -220,4 +275,5 @@
 
   <script src="popup.js"></script>
 </body>
+
 </html>
