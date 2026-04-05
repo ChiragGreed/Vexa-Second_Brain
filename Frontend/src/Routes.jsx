@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 import App from './App'
 import Collections from './Features/Collections/Pages/Collections/Collections'
 import KnowledgeGraph from './Features/KnowledgeGraph/Pages/KnowlegeGraph'
@@ -11,25 +12,25 @@ import Register from './Features/Authentication/Pages/RegisterPage/Register'
 import Login from './Features/Authentication/Pages/LoginPage/Login'
 import LandingPage from './Features/Landing Page/Page/LandingPage'
 
-
 const AppRouter = () => {
-
-
-
     return (
         <BrowserRouter>
             <Routes>
+
                 <Route path='/' element={<LandingPage />} />
 
                 <Route path='/register' element={<Register />} />
 
                 <Route path='/login' element={<Login />} />
 
-                <Route path="/App" element={<App />}>
+                <Route path="/app" element={<App />}>
 
-                    <Route index path='inbox' element={<Dashboard />} />
+                    {/* default page */}
+                    <Route index element={<Dashboard />} />
 
-                    <Route index path='searchResult' element={<SearchResult />} />
+                    <Route path='inbox' element={<Dashboard />} />
+
+                    <Route path='searchResult' element={<SearchResult />} />
 
                     <Route path='items/:itemId' element={<ItemDets />} />
 

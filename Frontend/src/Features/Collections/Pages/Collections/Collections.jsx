@@ -91,7 +91,7 @@ const Collections = () => {
                             className="collection-card"
                             key={col._id}
                             onClick={() => {
-                                navigate(`/collections/${col._id}`);
+                                navigate(`/app/collections/${col._id}`);
                             }}
                         >
 

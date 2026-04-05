@@ -21,7 +21,7 @@ const App = () => {
       const isAuth = await protectedHandler();
 
       if (!isAuth) {
-        navigate('/');
+        // navigate('/');
       }
     }
 

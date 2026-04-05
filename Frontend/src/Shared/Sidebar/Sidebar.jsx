@@ -27,10 +27,10 @@ const icons = {
 };
 
 const NAV = [
-  { id: 'inbox', label: 'Inbox', icon: icons.inbox, path: '/inbox' },
-  { id: 'collections', label: 'Collections', icon: icons.collections, path: '/collections' },
-  { id: 'graph', label: 'Knowledge Graph', icon: icons.graph, path: '/knowledgeGraph' },
-  { id: 'resurfacing', label: 'Resurfacing', icon: icons.resurface, path: '/resurfacing' },
+  { id: 'inbox', label: 'Inbox', icon: icons.inbox, path: '/app/inbox' },
+  { id: 'collections', label: 'Collections', icon: icons.collections, path: '/app/collections' },
+  { id: 'graph', label: 'Knowledge Graph', icon: icons.graph, path: '/app/knowledgeGraph' },
+  { id: 'resurfacing', label: 'Resurfacing', icon: icons.resurface, path: '/app/resurfacing' },
 ];
 
 const Sidebar = () => {

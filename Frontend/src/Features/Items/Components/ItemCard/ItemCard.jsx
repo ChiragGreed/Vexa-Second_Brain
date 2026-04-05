@@ -18,7 +18,7 @@ const ItemCard = ({ items }) => {
           key={idx}
           className="item-card"
           onClick={async () => {
-            navigate(`/items/${item._id}`);
+            navigate(`/app/items/${item._id}`);
           }}
         >
 
