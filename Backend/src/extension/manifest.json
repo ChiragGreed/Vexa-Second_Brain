@@ -17,6 +17,6 @@
   },
 
   "host_permissions": [
-    "http://localhost:9000/*"
+    "https://second-brain-td6n.onrender.com/*"
   ]
 }

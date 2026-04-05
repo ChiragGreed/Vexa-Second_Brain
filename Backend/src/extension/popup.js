@@ -1,4 +1,4 @@
-const API = "http://localhost:9000/api"
+const API = "https://second-brain-td6n.onrender.com/api"
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -77,7 +77,7 @@ async function loginHandler() {
     catch (err) {
 
         document
-            .getElementById("message").innerText = "Server error"
+            .getElementById("message").innerText = err
 
     }
 
