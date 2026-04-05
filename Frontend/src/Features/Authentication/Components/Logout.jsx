@@ -1,12 +1,13 @@
 import useAuth from "../Hooks/useAuth";
 import "./LogoutButton.scss";
 
-export default function LogoutButton({ onLogout }) {
+export default function LogoutButton() {
 
-    const { logoutHandler } = useAuth();
+    const { logoutHandler, protectedHandler } = useAuth();
 
     function handleClick() {
         logoutHandler();
+        protectedHandler();
     }
 
     return (

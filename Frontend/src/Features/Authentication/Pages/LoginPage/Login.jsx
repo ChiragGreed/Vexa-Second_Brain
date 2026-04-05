@@ -24,7 +24,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await loginHandler({ ...formData });
-    navigate('/inbox');
+    navigate('/app/inbox');
   };
 
   return (
