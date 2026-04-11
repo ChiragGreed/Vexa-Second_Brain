@@ -24,8 +24,19 @@ export async function getLinkPreview(url) {
 
     try {
 
-        const { body: html } = await got(url);
+
+        const ytMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})/);
+        if (ytMatch) {
+            return {
+                previewImage: `https://img.youtube.com/vi/${ytMatch[1]}/hqdefault.jpg`,
+                previewTitle: null,
+                previewDescription: null,
+                previewLogo: null
+            };
+        }
         
+        const { body: html } = await got(url);
+
         const metadata = await scraper({ html, url });
 
         let previewImage = metadata.image
