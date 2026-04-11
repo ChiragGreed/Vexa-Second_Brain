@@ -24,15 +24,9 @@ export async function getLinkPreview(url) {
 
     try {
 
-        const html = await got(url, {
-            headers: {
-                "user-agent":
-                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120 Safari/537.36",
-                "accept-language": "en-US,en;q=0.9"
-            }
-        }).text()
-
-        const metadata = await scraper({ html, url })
+        const { body: html } = await got(url);
+        
+        const metadata = await scraper({ html, url });
 
         let previewImage = metadata.image
 
