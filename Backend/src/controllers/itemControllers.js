@@ -10,19 +10,7 @@ import { RelatedItemService } from "../services/relatedItemsService.js";
 import { semanticSearch } from "../services/semanticSearchService.js";
 import { getResurfacedItems } from "../services/resurfaceService.js";
 import { getLinkPreview } from "../utils/preview.util.js";
-import path from 'path';
-import { fileURLToPath } from "url";
-import zip from 'express-zip';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-
-export const downloadExtension = async (req, res) => {
-    res.zip([
-        { path: path.join(__dirname, "../", "../", "extension"), name: 'Vexa clipper.zip' }
-    ])
-}
 
 export const saveItem = async (req, res) => {
     try {
@@ -92,7 +80,6 @@ export const saveItem = async (req, res) => {
         });
     }
 };
-
 
 export const getItems = async (req, res) => {
 

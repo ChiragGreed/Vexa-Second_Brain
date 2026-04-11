@@ -5,11 +5,6 @@ const api = axios.create({
     withCredentials: true
 })
 
-export const downloadExtensionApi = async () => {
-    const response = await api.get('/downloadExtension', { responseType: 'blob' });
-    console.log(response) 
-    return response.data;
-}
 
 export const getItemsApi = async () => {
     const response = await api.get('/getItems');
